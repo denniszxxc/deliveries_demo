@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1764085B21D0C14E00515C80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1764085D21D0C14E00515C80 /* Localizable.strings */; };
+		1764086021D0C64F00515C80 /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */; };
+		176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */; };
+		176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66E021D0AADE00081636 /* DeliveryListView.swift */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
-		17CC711D21CBCAE600748540 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* ViewController.swift */; };
-		17CC712021CBCAE600748540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC711E21CBCAE600748540 /* Main.storyboard */; };
+		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
 		17CC712521CBCAE700748540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712321CBCAE700748540 /* LaunchScreen.storyboard */; };
 		17CC713021CBCAE800748540 /* DeliveriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC712F21CBCAE800748540 /* DeliveriesTests.swift */; };
@@ -34,10 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1764085C21D0C14E00515C80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1764085E21D0C17500515C80 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
+		176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryNavigationController.swift; sourceTree = "<group>"; };
+		176B66E021D0AADE00081636 /* DeliveryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListView.swift; sourceTree = "<group>"; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17CC711C21CBCAE600748540 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		17CC711F21CBCAE600748540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
 		17CC712121CBCAE700748540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CC712421CBCAE700748540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CC712621CBCAE700748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176B66DB21D0A39900081636 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */,
+				17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		176B66DF21D0AACC00081636 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				176B66E021D0AADE00081636 /* DeliveryListView.swift */,
+				1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		17CC710E21CBCAE600748540 = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				17CC711A21CBCAE600748540 /* AppDelegate.swift */,
-				17CC711C21CBCAE600748540 /* ViewController.swift */,
-				17CC711E21CBCAE600748540 /* Main.storyboard */,
+				176B66DF21D0AACC00081636 /* View */,
+				176B66DB21D0A39900081636 /* Controller */,
 				17CC712121CBCAE700748540 /* Assets.xcassets */,
+				1764085D21D0C14E00515C80 /* Localizable.strings */,
 				17CC712321CBCAE700748540 /* LaunchScreen.storyboard */,
 				17CC712621CBCAE700748540 /* Info.plist */,
 			);
@@ -212,6 +238,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 17CC710E21CBCAE600748540;
 			productRefGroup = 17CC711821CBCAE600748540 /* Products */;
@@ -231,8 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17CC712521CBCAE700748540 /* LaunchScreen.storyboard in Resources */,
+				1764085B21D0C14E00515C80 /* Localizable.strings in Resources */,
 				17CC712221CBCAE700748540 /* Assets.xcassets in Resources */,
-				17CC712021CBCAE600748540 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CC711D21CBCAE600748540 /* ViewController.swift in Sources */,
+				1764086021D0C64F00515C80 /* DeliveryTableViewCell.swift in Sources */,
+				176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */,
+				17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */,
+				176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */,
 				17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,12 +344,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		17CC711E21CBCAE600748540 /* Main.storyboard */ = {
+		1764085D21D0C14E00515C80 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				17CC711F21CBCAE600748540 /* Base */,
+				1764085C21D0C14E00515C80 /* en */,
+				1764085E21D0C17500515C80 /* zh-Hant */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		17CC712321CBCAE700748540 /* LaunchScreen.storyboard */ = {
@@ -337,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -398,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -456,6 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveries/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,7 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hk.dennlis.li.deliveries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,6 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveries/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hk.dennlis.li.deliveries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

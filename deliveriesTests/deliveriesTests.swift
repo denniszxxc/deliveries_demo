@@ -3,7 +3,7 @@
 //  DeliveriesTests
 //
 //  Created by Dennis Li on 20/12/2018.
-//  Copyright © 2018年 Dennis Li. All rights reserved.
+//  Copyright © 2018 Dennis Li. All rights reserved.
 //
 
 import XCTest
