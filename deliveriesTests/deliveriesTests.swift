@@ -1,6 +1,6 @@
 //
-//  deliveriesTests.swift
-//  deliveriesTests
+//  DeliveriesTests.swift
+//  DeliveriesTests
 //
 //  Created by Dennis Li on 20/12/2018.
 //  Copyright © 2018年 Dennis Li. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import deliveries
 
-class deliveriesTests: XCTestCase {
+class DeliveriesTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

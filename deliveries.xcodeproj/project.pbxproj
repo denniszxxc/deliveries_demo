@@ -12,8 +12,8 @@
 		17CC712021CBCAE600748540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC711E21CBCAE600748540 /* Main.storyboard */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
 		17CC712521CBCAE700748540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712321CBCAE700748540 /* LaunchScreen.storyboard */; };
-		17CC713021CBCAE800748540 /* deliveriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC712F21CBCAE800748540 /* deliveriesTests.swift */; };
-		17CC713B21CBCAE800748540 /* deliveriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC713A21CBCAE800748540 /* deliveriesUITests.swift */; };
+		17CC713021CBCAE800748540 /* DeliveriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC712F21CBCAE800748540 /* DeliveriesTests.swift */; };
+		17CC713B21CBCAE800748540 /* DeliveriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC713A21CBCAE800748540 /* DeliveriesUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +42,10 @@
 		17CC712421CBCAE700748540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CC712621CBCAE700748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CC712B21CBCAE800748540 /* deliveriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deliveriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17CC712F21CBCAE800748540 /* deliveriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deliveriesTests.swift; sourceTree = "<group>"; };
+		17CC712F21CBCAE800748540 /* DeliveriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesTests.swift; sourceTree = "<group>"; };
 		17CC713121CBCAE800748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CC713621CBCAE800748540 /* deliveriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deliveriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17CC713A21CBCAE800748540 /* deliveriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deliveriesUITests.swift; sourceTree = "<group>"; };
+		17CC713A21CBCAE800748540 /* DeliveriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesUITests.swift; sourceTree = "<group>"; };
 		17CC713C21CBCAE800748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 		17CC712E21CBCAE800748540 /* deliveriesTests */ = {
 			isa = PBXGroup;
 			children = (
-				17CC712F21CBCAE800748540 /* deliveriesTests.swift */,
+				17CC712F21CBCAE800748540 /* DeliveriesTests.swift */,
 				17CC713121CBCAE800748540 /* Info.plist */,
 			);
 			path = deliveriesTests;
@@ -119,7 +119,7 @@
 		17CC713921CBCAE800748540 /* deliveriesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				17CC713A21CBCAE800748540 /* deliveriesUITests.swift */,
+				17CC713A21CBCAE800748540 /* DeliveriesUITests.swift */,
 				17CC713C21CBCAE800748540 /* Info.plist */,
 			);
 			path = deliveriesUITests;
@@ -135,6 +135,7 @@
 				17CC711321CBCAE600748540 /* Sources */,
 				17CC711421CBCAE600748540 /* Frameworks */,
 				17CC711521CBCAE600748540 /* Resources */,
+				176B66DA21D0913100081636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +252,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		176B66DA21D0913100081636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		17CC711321CBCAE600748540 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -265,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CC713021CBCAE800748540 /* deliveriesTests.swift in Sources */,
+				17CC713021CBCAE800748540 /* DeliveriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CC713B21CBCAE800748540 /* deliveriesUITests.swift in Sources */,
+				17CC713B21CBCAE800748540 /* DeliveriesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,12 +454,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveries/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dennlis.li.deliveries;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.dennlis.li.deliveries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,12 +472,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveries/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dennlis.li.deliveries;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.dennlis.li.deliveries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
