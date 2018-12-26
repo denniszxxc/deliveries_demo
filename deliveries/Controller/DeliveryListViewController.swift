@@ -9,22 +9,30 @@
 import UIKit
 
 class DeliveryListViewController: UIViewController {
+    var viewModel = DeliveryListViewModel()
+
     override func loadView() {
         let view = DeliveryListView()
         view.tableView.dataSource = self
         view.tableView.delegate = self
+        view.refreshButton.addTarget(self, action: #selector(didClickRefresh), for: .touchUpInside)
         self.view = view
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fechDeliveries()
+    }
+
+    @objc func didClickRefresh(_: UIButton) {
+        viewModel.refreshDeliveries()
     }
 }
 
 extension DeliveryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: change tableview's data
-        return 5
+        return 20
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

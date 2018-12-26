@@ -27,6 +27,14 @@ class DeliveryListView: UIView {
         return tableView
     }()
 
+    lazy var refreshButton: UIButton = {
+        let refreshButton = UIButton.init(type: .system)
+        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+        refreshButton.setTitle(NSLocalizedString("delivery_list__refresh", comment: ""), for: .normal)
+        refreshButton.setContentHuggingPriority(.required, for: .horizontal)
+        return refreshButton
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createViews()
@@ -77,11 +85,6 @@ class DeliveryListView: UIView {
         title.text = NSLocalizedString("delivery_list__title", comment: "")
         title.font = UIFont.preferredFont(forTextStyle: .title1)
         title.setContentHuggingPriority(.defaultLow, for: .horizontal)
-
-        let refreshButton = UIButton.init(type: .system)
-        refreshButton.translatesAutoresizingMaskIntoConstraints = false
-        refreshButton.setTitle(NSLocalizedString("delivery_list__refresh", comment: ""), for: .normal)
-        refreshButton.setContentHuggingPriority(.required, for: .horizontal)
 
         header.addSubview(title)
         header.addSubview(refreshButton)
