@@ -20,18 +20,23 @@ class DeliveryListViewModel {
             return
         }
 
+        fetchDelivery(cleanFetch: true)
+    }
+
+    private func fetchDelivery(cleanFetch: Bool) {
         loading.onNext(true)
 
-        deliveryRepository.fechDeliveries(cleanCachedDeliveries: true, success: { [weak self] in
+        deliveryRepository.fechDeliveries(cleanCachedDeliveries: cleanFetch, success: { [weak self] in
             self?.loading.onNext(false)
-        }, fail: { [weak self] error in
-            self?.loading.onNext(false)
-            self?.fetchDeliveriesError.onNext(error)
+            }, fail: { [weak self] error in
+                self?.loading.onNext(false)
+                self?.fetchDeliveriesError.onNext(error)
         })
     }
 
-    // TODO: pagination fetch
-    func fetchMoreDeliveries() {
-        //        deliveryRepository.fechMoreDeliveries()
+    func fetchMoreDeliveriesIfNeeded(indices: [Int]) {
+        if let maxIndex = indices.max(), deliveryRepository.shouldStartFetchNext(index: maxIndex) {
+            fetchDelivery(cleanFetch: false)
+        }
     }
 }

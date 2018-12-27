@@ -21,6 +21,7 @@ class DeliveryListViewController: UIViewController {
     override func loadView() {
         let view = DeliveryListView()
         view.tableView.delegate = self
+        view.tableView.prefetchDataSource = self
         view.refreshButton.addTarget(self, action: #selector(didClickRefresh), for: .touchUpInside)
 
         self.view = view
@@ -84,5 +85,11 @@ extension DeliveryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: navigate to detail page
         print("didSlectRowAt \(indexPath.row)")
+    }
+}
+
+extension DeliveryListViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        viewModel.fetchMoreDeliveriesIfNeeded(indices: indexPaths.map({ $0.row }))
     }
 }

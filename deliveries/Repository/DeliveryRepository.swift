@@ -20,7 +20,7 @@ class DeliveryRepository {
         case mapping
         case persist
     }
-    static let DeliveryListFetchLimit = 10
+    static let DeliveryListFetchLimit = 20
 
     // Local State
     var skipPage: Int = 0
@@ -65,6 +65,10 @@ class DeliveryRepository {
                     success()
                 }
             }, fail: mainThreadFail)
+    }
+
+    func shouldStartFetchNext(index: Int) -> Bool {
+        return shouldFetchMore && ( (index + 1) >= skipPage * DeliveryRepository.DeliveryListFetchLimit)
     }
 
     func deliveryObservable() -> Observable<Results<Delivery>>? {
