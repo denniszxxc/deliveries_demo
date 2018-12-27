@@ -21,29 +21,35 @@ class DeliveryListViewController: UIViewController {
     override func loadView() {
         let view = DeliveryListView()
         view.tableView.delegate = self
-        view.tableView.prefetchDataSource = self
         view.refreshButton.addTarget(self, action: #selector(didClickRefresh), for: .touchUpInside)
 
         self.view = view
         self.tableView = view.tableView
-        self.activityIndicator = view.activityIndicator
+        self.activityIndicator = view.centeredOverlayActivityIndicator
+    }
+
+    func view() -> DeliveryListView? {
+        return self.view as? DeliveryListView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.refreshDeliveries()
 
+        setupObservers()
+    }
+
+    @objc func didClickRefresh(_: UIButton) {
+        viewModel.refreshDeliveries()
+    }
+
+    private func setupObservers() {
         viewModel.deliveryRepository
             .deliveryObservable()?
             .bind(to:
                 tableView.rx.items(cellIdentifier: DeliveryTableViewCell.cellIdentifier,
                                    cellType: DeliveryTableViewCell.self)) { (_, element, cell) in
                                     cell.bind(delivery: element)}
-            .disposed(by: disposeBag)
-
-        viewModel.loading
-            .map({ !$0 })
-            .bind(to: activityIndicator.rx.isHidden)
             .disposed(by: disposeBag)
 
         viewModel.fetchDeliveriesError
@@ -54,10 +60,23 @@ class DeliveryListViewController: UIViewController {
                 self?.showErrorAlert(error)
             })
             .disposed(by: disposeBag)
-    }
+        
+        viewModel.loading.asObserver()
+            .subscribe(onNext: { (loading) in
+                if loading {
+                    self.view()?.showTableViewLoadingFooterView()
+                } else {
+                    self.view()?.hidebleViewLoadingFooterView()
+                }
 
-    @objc func didClickRefresh(_: UIButton) {
-        viewModel.refreshDeliveries()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = loading
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.cleanFetchloading
+            .map({ !$0 })
+            .bind(to: activityIndicator.rx.isHidden)
+        .disposed(by: disposeBag)
     }
 
     private func showErrorAlert(_ error: DeliveryRepository.FetchDeliveryError) {
@@ -86,10 +105,8 @@ extension DeliveryListViewController: UITableViewDelegate {
         // TODO: navigate to detail page
         print("didSlectRowAt \(indexPath.row)")
     }
-}
 
-extension DeliveryListViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        viewModel.fetchMoreDeliveriesIfNeeded(indices: indexPaths.map({ $0.row }))
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.fetchMoreDeliveriesIfNeeded(index: indexPath.row)
     }
 }

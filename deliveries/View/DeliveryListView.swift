@@ -36,8 +36,8 @@ class DeliveryListView: UIView {
         return refreshButton
     }()
 
-    lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView.init(style: .whiteLarge)
+    lazy var centeredOverlayActivityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView.init(style: .gray)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
         activityIndicator.isHidden = true
@@ -84,10 +84,10 @@ class DeliveryListView: UIView {
             tableView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
             ])
 
-        container.addSubview(activityIndicator)
+        container.addSubview(centeredOverlayActivityIndicator)
         container.addConstraints([
-            activityIndicator.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            centeredOverlayActivityIndicator.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            centeredOverlayActivityIndicator.centerYAnchor.constraint(equalTo: container.centerYAnchor)
             ])
     }
 
@@ -121,5 +121,28 @@ class DeliveryListView: UIView {
         header.addConstraints([labelTop, labelBottom, labelLeft,
                                buttonTop, buttonBottom, buttonRight, buttonLeftLabelRight])
         return header
+    }
+
+    private func tableViewFooter() -> UIView {
+        // Cannot use autolayout on UITableView's tableFooterView
+        let footerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 90))
+
+        let activityIndicator = UIActivityIndicatorView.init(style: .gray)
+        activityIndicator.startAnimating()
+
+        footerView.addSubview(activityIndicator)
+        activityIndicator.autoresizingMask = [.flexibleBottomMargin, .flexibleTopMargin,
+                                              .flexibleLeftMargin, .flexibleRightMargin]
+        activityIndicator.center = CGPoint(x: footerView.bounds.midX,
+                                           y: footerView.bounds.midY)
+        return footerView
+    }
+
+    public func showTableViewLoadingFooterView() {
+        tableView.tableFooterView = tableViewFooter()
+    }
+
+    public func hidebleViewLoadingFooterView() {
+        tableView.tableFooterView = nil
     }
 }
