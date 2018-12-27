@@ -24,6 +24,7 @@
 		176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */; };
 		176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66E021D0AADE00081636 /* DeliveryListView.swift */; };
 		17B44E0921D3898A0035AF78 /* DeliveryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */; };
+		17B44E0D21D4DA8B0035AF78 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryNavigationController.swift; sourceTree = "<group>"; };
 		176B66E021D0AADE00081636 /* DeliveryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListView.swift; sourceTree = "<group>"; };
 		17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepository.swift; sourceTree = "<group>"; };
+		17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = SOURCE_ROOT; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				1764087A21D37E0500515C80 /* RxCocoa.framework in Frameworks */,
 				1764087821D37E0500515C80 /* RxRealm.framework in Frameworks */,
 				1764087721D37E0500515C80 /* RxSwift.framework in Frameworks */,
+				17B44E0D21D4DA8B0035AF78 /* Kingfisher.framework in Frameworks */,
 				1764087D21D37E0500515C80 /* Realm.framework in Frameworks */,
 				1764087921D37E0500515C80 /* RxAtomic.framework in Frameworks */,
 				1764087E21D37E0500515C80 /* RealmSwift.framework in Frameworks */,
@@ -150,6 +153,7 @@
 				1764087221D37E0500515C80 /* RxCocoa.framework */,
 				1764087021D37E0500515C80 /* RxRealm.framework */,
 				1764086F21D37E0500515C80 /* RxSwift.framework */,
+				17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */,
 			);
 			name = "Carthage Framework";
 			sourceTree = "<group>";
@@ -382,6 +386,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -393,6 +398,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRealm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DeliveryTableViewCell: UITableViewCell {
     static let cellIdentifier = "DeliveryTableViewCell"
+
+    static let thumbnailImageWidthHeight: CGFloat = 64
 
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -29,7 +32,9 @@ class DeliveryTableViewCell: UITableViewCell {
         thumbnailImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         thumbnailImageView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         thumbnailImageView.setContentCompressionResistancePriority(.required, for: .vertical)
-        thumbnailImageView.contentMode = .scaleAspectFit
+        thumbnailImageView.contentMode = .scaleAspectFill
+        thumbnailImageView.clipsToBounds = true
+        thumbnailImageView.layer.cornerRadius = 4
         return thumbnailImageView
     }()
 
@@ -41,6 +46,12 @@ class DeliveryTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createViews()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        thumbnailImageView.kf.cancelDownloadTask()
+        thumbnailImageView.image = nil
     }
 
     private func createViews() {
@@ -57,15 +68,22 @@ class DeliveryTableViewCell: UITableViewCell {
 
             thumbnailImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12),
             thumbnailImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12),
-            thumbnailImageView.widthAnchor.constraint(equalToConstant: 64),
-            thumbnailImageView.heightAnchor.constraint(equalToConstant: 64),
+            thumbnailImageView.widthAnchor.constraint(equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight),
+            thumbnailImageView.heightAnchor.constraint(equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight),
             thumbnailImageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -20)
             ])
     }
 
     func bind(delivery: Delivery) {
         titleLabel.text = delivery.itemDescription
-        // TODO: load image url with cache
-    }
 
+        if let thumbnailUrl = delivery.imageUrl {
+            let url = URL(string: thumbnailUrl)
+
+            thumbnailImageView.kf.indicatorType = .activity
+            thumbnailImageView.kf.setImage(with: url)
+        } else {
+            thumbnailImageView.image = nil
+        }
+    }
 }
