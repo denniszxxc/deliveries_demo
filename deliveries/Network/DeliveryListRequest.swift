@@ -31,8 +31,8 @@ class DeliveryListReqeust {
 
     func start(limit: Int = 20,
                offset: Int = 0,
-               success: @escaping  () -> Void,
-               fail: @escaping (DeliveryListReqeustError) -> Void) {
+               success: @escaping  ([Delivery]) -> Void,
+               fail: @escaping (DeliveryRepository.FetchDeliveryError) -> Void) {
         guard let requestUrl = requestUrl(limit, offset) else {
             return
         }
@@ -40,26 +40,18 @@ class DeliveryListReqeust {
         let urlRequest = URLRequest.init(url: requestUrl)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             guard error == nil else {
-                // TODO seperate generate api error from "no network"
                 fail(.network)
                 return
             }
 
             // Map data to into data model
             do {
-                _ = try self.responseMapper.map(data: data)
-                // TODO: persist the deliveries objects
-                success()
+                let deliveryList = try self.responseMapper.map(data: data)
+                success(deliveryList)
             } catch {
                 fail(.mapping)
             }
         }
         task.resume()
-    }
-
-    enum DeliveryListReqeustError {
-        case network
-        case mapping
-        case persist // TODO: Move to DeliveryRepository Class
     }
 }

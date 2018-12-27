@@ -7,23 +7,31 @@
 //
 
 import Foundation
+import RxSwift
+
 class DeliveryListViewModel {
 
-    func fechDeliveries() {
-        // TODO Call network
+    let deliveryRepository = DeliveryRepository()
+    let loading = BehaviorSubject<Bool>(value: false)
+    let fetchDeliveriesError = BehaviorSubject<DeliveryRepository.FetchDeliveryError?>(value: nil)
 
-        DeliveryListReqeust.init().start(
-            success: {
-            // TODO: set different loading indiciation show hide state
-            },
-            fail: { (_) in
-                // TODO: display different error
+    func refreshDeliveries() {
+        if let isLoading = try? loading.value(), isLoading == true {
+            return
+        }
+
+        loading.onNext(true)
+
+        deliveryRepository.fechDeliveries(cleanCachedDeliveries: true, success: { [weak self] in
+            self?.loading.onNext(false)
+        }, fail: { [weak self] error in
+            self?.loading.onNext(false)
+            self?.fetchDeliveriesError.onNext(error)
         })
     }
 
-    func refreshDeliveries() {
-        // TODO call api, clear data before writing new data
+    // TODO: pagination fetch
+    func fetchMoreDeliveries() {
+        //        deliveryRepository.fechMoreDeliveries()
     }
-
-    // TODO: pagination, success, failed alert, etc
 }

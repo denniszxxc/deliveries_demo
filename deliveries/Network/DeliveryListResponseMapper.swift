@@ -24,7 +24,7 @@ class DeliveryListResponseMapper {
                 }
             }
         } else {
-            // TODO: handle mapping error
+            throw DeliveryRepository.FetchDeliveryError.mapping
         }
 
         return resultItems

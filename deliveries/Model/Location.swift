@@ -7,12 +7,14 @@
 //
 
 import Foundation
-struct Location {
-    var lat: Double
-    var lng: Double
-    var address: String?
+import RealmSwift
 
-    init?(json: [String: Any] ) {
+class Location: Object {
+    @objc dynamic var lat: Double = 0.0
+    @objc dynamic var lng: Double = 0.0
+    @objc dynamic var address: String?
+
+    convenience init?(json: [String: Any] ) {
         guard
             let lat = json["lat"] as? Double,
             let lng = json["lng"] as? Double,
@@ -21,6 +23,7 @@ struct Location {
                 return nil
         }
 
+        self.init()
         self.lat = lat
         self.lng = lng
         self.address = address

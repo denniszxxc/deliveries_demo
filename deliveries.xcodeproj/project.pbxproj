@@ -23,6 +23,7 @@
 		1764087E21D37E0500515C80 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087621D37E0500515C80 /* RealmSwift.framework */; };
 		176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */; };
 		176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66E021D0AADE00081636 /* DeliveryListView.swift */; };
+		17B44E0921D3898A0035AF78 /* DeliveryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		1764087621D37E0500515C80 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
 		176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryNavigationController.swift; sourceTree = "<group>"; };
 		176B66E021D0AADE00081636 /* DeliveryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListView.swift; sourceTree = "<group>"; };
+		17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepository.swift; sourceTree = "<group>"; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		17B44E0721D3895E0035AF78 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		17CC710E21CBCAE600748540 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 				176B66DB21D0A39900081636 /* Controller */,
 				1764086121D0E08800515C80 /* ViewModel */,
 				1764086421D0E59D00515C80 /* Network */,
+				17B44E0721D3895E0035AF78 /* Repository */,
 				17CC712121CBCAE700748540 /* Assets.xcassets */,
 				1764085D21D0C14E00515C80 /* Localizable.strings */,
 				17CC712321CBCAE700748540 /* LaunchScreen.storyboard */,
@@ -413,6 +424,7 @@
 			files = (
 				1764086021D0C64F00515C80 /* DeliveryTableViewCell.swift in Sources */,
 				176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */,
+				17B44E0921D3898A0035AF78 /* DeliveryRepository.swift in Sources */,
 				1764086D21D36EF100515C80 /* Location.swift in Sources */,
 				1764086321D0E09B00515C80 /* DeliveryListViewModel.swift in Sources */,
 				1764086621D0E5B400515C80 /* DeliveryListRequest.swift in Sources */,

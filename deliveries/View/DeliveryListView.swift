@@ -14,6 +14,7 @@ import UIKit
  *   - title label
  *   - refresh button
  * 2. UITableView
+ * 3. Centered ActivityIndicatorView
  */
 class DeliveryListView: UIView {
     lazy var tableView: UITableView = {
@@ -33,6 +34,14 @@ class DeliveryListView: UIView {
         refreshButton.setTitle(NSLocalizedString("delivery_list__refresh", comment: ""), for: .normal)
         refreshButton.setContentHuggingPriority(.required, for: .horizontal)
         return refreshButton
+    }()
+
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView.init(style: .whiteLarge)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = true
+        return activityIndicator
     }()
 
     override init(frame: CGRect) {
@@ -73,6 +82,12 @@ class DeliveryListView: UIView {
             tableView.leftAnchor.constraint(equalTo: container.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: container.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            ])
+
+        container.addSubview(activityIndicator)
+        container.addConstraints([
+            activityIndicator.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: container.centerYAnchor)
             ])
     }
 

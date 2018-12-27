@@ -63,4 +63,9 @@ class DeliveryTableViewCell: UITableViewCell {
             ])
     }
 
+    func bind(delivery: Delivery) {
+        titleLabel.text = delivery.itemDescription
+        // TODO: load image url with cache
+    }
+
 }

@@ -1,2 +1,6 @@
 "delivery_list__title" = "訂單";
 "delivery_list__refresh" = "重新載入";
+"delivery_list__alert_error" = "錯誤";
+"delivery_list__alert_network_error" = "網絡錯誤";
+"delivery_list__alert_message" = "將顯示快取訂單";
+"delivery_list__alert_ok" = "確定";
