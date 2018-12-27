@@ -114,6 +114,10 @@ class DeliveryListView: UIView {
 
         let buttonLeftLabelRight = title.rightAnchor.constraint(equalTo: refreshButton.leftAnchor, constant: -8)
 
+        labelBottom.priority = .defaultHigh
+        buttonBottom.priority = .defaultHigh
+        buttonRight.priority = .defaultHigh
+
         header.addConstraints([labelTop, labelBottom, labelLeft,
                                buttonTop, buttonBottom, buttonRight, buttonLeftLabelRight])
         return header
