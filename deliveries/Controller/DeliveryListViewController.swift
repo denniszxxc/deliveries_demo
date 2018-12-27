@@ -34,7 +34,9 @@ class DeliveryListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.refreshDeliveries()
+        viewModel.refreshDeliveries {
+            self.tableView.scrollRectToVisible(CGRect.zero, animated: false)
+        }
 
         setupObservers()
     }
@@ -44,8 +46,7 @@ class DeliveryListViewController: UIViewController {
     }
 
     private func setupObservers() {
-        viewModel.deliveryRepository
-            .deliveryObservable()?
+        viewModel.deliveryObservable?
             .bind(to:
                 tableView.rx.items(cellIdentifier: DeliveryTableViewCell.cellIdentifier,
                                    cellType: DeliveryTableViewCell.self)) { (_, element, cell) in
@@ -60,7 +61,7 @@ class DeliveryListViewController: UIViewController {
                 self?.showErrorAlert(error)
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.loading.asObserver()
             .subscribe(onNext: { (loading) in
                 if loading {
@@ -76,7 +77,7 @@ class DeliveryListViewController: UIViewController {
         viewModel.cleanFetchloading
             .map({ !$0 })
             .bind(to: activityIndicator.rx.isHidden)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
 
     private func showErrorAlert(_ error: DeliveryRepository.FetchDeliveryError) {
@@ -96,14 +97,19 @@ class DeliveryListViewController: UIViewController {
         alert.addAction(UIAlertAction.init(title: alertOk, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        if let navigation = self.navigationController as? DeliveryNavigation {
+            navigation.showAlert(alert: alert)
+        }
     }
 }
 
 extension DeliveryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: navigate to detail page
-        print("didSlectRowAt \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let navigation = self.navigationController as? DeliveryNavigation,
+            let deliveryId = viewModel.deliveryIdAt(index: indexPath.row) {
+            navigation.showDeliveryDetail(deliveryId: deliveryId)
+        }
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

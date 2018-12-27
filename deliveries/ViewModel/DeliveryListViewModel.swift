@@ -8,24 +8,35 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 class DeliveryListViewModel {
 
-    let deliveryRepository = DeliveryRepository()
+    private let deliveryRepository = DeliveryRepository()
+    var deliveryObservable: Observable<Results<Delivery>>?
     let loading = BehaviorSubject<Bool>(value: false)
     let cleanFetchloading = BehaviorSubject<Bool>(value: false)
     let fetchDeliveriesError = BehaviorSubject<DeliveryRepository.FetchDeliveryError?>(value: nil)
+
+    private var deliveryResult: Results<Delivery>?
+
+    init() {
+        deliveryObservable = deliveryRepository.deliveryObservable()?
+            .do(onNext: { [weak self] (deliveryResult) in
+                self?.deliveryResult = deliveryResult
+            })
+    }
 
     private func isLoading() -> Bool {
         let loadingValue = try? loading.value()
         return loadingValue ?? false
     }
 
-    func refreshDeliveries() {
+    func refreshDeliveries(success: (() -> Void)? = nil) {
         if isLoading() {
             return
         }
-        fetchDelivery(cleanFetch: true)
+        fetchDelivery(cleanFetch: true, success: success)
     }
 
     func fetchMoreDeliveriesIfNeeded(index: Int) {
@@ -34,7 +45,7 @@ class DeliveryListViewModel {
         }
     }
 
-    private func fetchDelivery(cleanFetch: Bool) {
+    private func fetchDelivery(cleanFetch: Bool, success: (() -> Void)? = nil) {
         loading.onNext(true)
         if cleanFetch {
             cleanFetchloading.onNext(true)
@@ -45,6 +56,7 @@ class DeliveryListViewModel {
             if cleanFetch {
                 self?.cleanFetchloading.onNext(false)
             }
+            success?()
             }, fail: { [weak self] error in
                 self?.loading.onNext(false)
                 if cleanFetch {
@@ -52,5 +64,14 @@ class DeliveryListViewModel {
                 }
                 self?.fetchDeliveriesError.onNext(error)
         })
+    }
+
+    public func deliveryIdAt(index: Int) -> Int? {
+        guard let deliveryResult = deliveryResult,
+            !deliveryResult.isInvalidated,
+            deliveryResult.count > index else {
+            return nil
+        }
+        return deliveryResult.toArray()[index].id
     }
 }

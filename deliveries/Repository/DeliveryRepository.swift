@@ -79,4 +79,14 @@ class DeliveryRepository {
         return Observable
             .collection(from: deliveries)
     }
+
+    func deliveryItemObservable(id: Int) ->  Observable<Delivery>? {
+        guard let realm = try? Realm() else {
+            return nil
+        }
+        if let delivery = realm.object(ofType: Delivery.self, forPrimaryKey: id) {
+            return Observable.from(object: delivery)
+        }
+        return nil
+    }
 }

@@ -25,6 +25,9 @@
 		176B66E121D0AADE00081636 /* DeliveryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66E021D0AADE00081636 /* DeliveryListView.swift */; };
 		17B44E0921D3898A0035AF78 /* DeliveryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */; };
 		17B44E0D21D4DA8B0035AF78 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */; };
+		17B44E0F21D506970035AF78 /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */; };
+		17B44E1121D506D80035AF78 /* DeliveryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */; };
+		17B44E1321D510070035AF78 /* DeliveryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1221D510070035AF78 /* DeliveryDetailView.swift */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 		176B66E021D0AADE00081636 /* DeliveryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListView.swift; sourceTree = "<group>"; };
 		17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepository.swift; sourceTree = "<group>"; };
 		17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = SOURCE_ROOT; };
+		17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
+		17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewModel.swift; sourceTree = "<group>"; };
+		17B44E1221D510070035AF78 /* DeliveryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailView.swift; sourceTree = "<group>"; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				1764086221D0E09B00515C80 /* DeliveryListViewModel.swift */,
+				17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 			children = (
 				176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */,
 				17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */,
+				17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 			children = (
 				176B66E021D0AADE00081636 /* DeliveryListView.swift */,
 				1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */,
+				17B44E1221D510070035AF78 /* DeliveryDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,11 +442,14 @@
 				17B44E0921D3898A0035AF78 /* DeliveryRepository.swift in Sources */,
 				1764086D21D36EF100515C80 /* Location.swift in Sources */,
 				1764086321D0E09B00515C80 /* DeliveryListViewModel.swift in Sources */,
+				17B44E1321D510070035AF78 /* DeliveryDetailView.swift in Sources */,
 				1764086621D0E5B400515C80 /* DeliveryListRequest.swift in Sources */,
 				17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */,
+				17B44E0F21D506970035AF78 /* DeliveryDetailViewController.swift in Sources */,
 				176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */,
 				1764086821D36E2B00515C80 /* DeliveryListResponseMapper.swift in Sources */,
 				1764086B21D36E5B00515C80 /* Delivery.swift in Sources */,
+				17B44E1121D506D80035AF78 /* DeliveryDetailViewModel.swift in Sources */,
 				17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol DeliveryNavigation {
+    func showAlert(alert: UIAlertController)
+    func showDeliveryDetail(deliveryId: Int)
+    func backToList()
+}
+
 class DeliveryNavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -17,5 +23,22 @@ class DeliveryNavigationController: UINavigationController {
 
     private func setupNavBar() {
         setNavigationBarHidden(true, animated: false)
+    }
+}
+
+extension DeliveryNavigationController: DeliveryNavigation {
+
+    func showAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func showDeliveryDetail(deliveryId: Int) {
+        let detailViewController = DeliveryDetailViewController()
+        detailViewController.viewModel = DeliveryDetailViewModel(deliveryId: deliveryId)
+        self.pushViewController(detailViewController, animated: true)
+    }
+
+    func backToList() {
+        self.popToRootViewController(animated: true)
     }
 }

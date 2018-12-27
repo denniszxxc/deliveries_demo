@@ -39,6 +39,7 @@ class DeliveryListView: UIView {
     lazy var centeredOverlayActivityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView.init(style: .gray)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = false
         activityIndicator.startAnimating()
         activityIndicator.isHidden = true
         return activityIndicator
