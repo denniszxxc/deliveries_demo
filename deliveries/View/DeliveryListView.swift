@@ -76,7 +76,7 @@ class DeliveryListView: UIView {
         container.addSubview(header)
         container.addSubview(self.tableView)
         container.addConstraints([
-            header.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor),
+            header.topAnchor.constraint(equalTo: container.topAnchor),
             header.leftAnchor.constraint(equalTo: container.leftAnchor),
             header.rightAnchor.constraint(equalTo: container.rightAnchor),
             header.bottomAnchor.constraint(equalTo: tableView.topAnchor),
@@ -102,15 +102,20 @@ class DeliveryListView: UIView {
         title.font = UIFont.preferredFont(forTextStyle: .title1)
         title.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = UIColor.lightGray
+
         header.addSubview(title)
         header.addSubview(refreshButton)
+        header.addSubview(separator)
 
-        let labelTop = title.topAnchor.constraint(equalTo: header.topAnchor, constant: 8)
-        let labelBottom = title.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -8)
+        let labelTop = title.topAnchor.constraint(equalTo: header.topAnchor, constant: 16)
+        let labelBottom = title.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -16)
         let labelLeft = title.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 20)
 
-        let buttonTop = refreshButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 8)
-        let buttonBottom = refreshButton.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -8)
+        let buttonTop = refreshButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 16)
+        let buttonBottom = refreshButton.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -16)
         let buttonRight = refreshButton.rightAnchor.constraint(equalTo: header.rightAnchor, constant: -20)
 
         let buttonLeftLabelRight = title.rightAnchor.constraint(equalTo: refreshButton.leftAnchor, constant: -8)
@@ -119,8 +124,15 @@ class DeliveryListView: UIView {
         buttonBottom.priority = .defaultHigh
         buttonRight.priority = .defaultHigh
 
+        let separatorBottom = separator.bottomAnchor.constraint(equalTo: header.bottomAnchor)
+        let separatorLeft = separator.leftAnchor.constraint(equalTo: header.leftAnchor)
+        let separatorRight = separator.rightAnchor.constraint(equalTo: header.rightAnchor)
+        let separatorHeight = separator.heightAnchor.constraint(equalToConstant: 1/UIScreen.main.scale)
+
         header.addConstraints([labelTop, labelBottom, labelLeft,
-                               buttonTop, buttonBottom, buttonRight, buttonLeftLabelRight])
+                               buttonTop, buttonBottom, buttonRight, buttonLeftLabelRight,
+                               separatorBottom, separatorLeft, separatorRight, separatorHeight
+            ])
         return header
     }
 

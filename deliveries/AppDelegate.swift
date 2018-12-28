@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pulley
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        // TODO: change initialViewController
+
         let initialViewController = DeliveryListViewController()
         let rootNavContoller = DeliveryNavigationController.init(rootViewController: initialViewController)
+        let pulleyViewControlelr = PulleyViewController(contentViewController: UIViewController(),
+                                                        drawerViewController: rootNavContoller)
 
-        self.window?.rootViewController = rootNavContoller
+        pulleyViewControlelr.initialDrawerPosition = .partiallyRevealed
+        self.window?.rootViewController = pulleyViewControlelr
         self.window?.makeKeyAndVisible()
         return true
     }

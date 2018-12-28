@@ -77,11 +77,11 @@ class DeliveryDetailView: UIView {
 
         let containerPadding: CGFloat = 16
         container.addConstraints([
-            dismissButton.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor, constant: 16),
+            dismissButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 16),
             dismissButton.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
             dismissButton.widthAnchor.constraint(equalToConstant: 48),
             dismissButton.heightAnchor.constraint(equalToConstant: 48),
-            titleLabel.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 16),
             titleLabel.leftAnchor.constraint(equalTo: container.leftAnchor, constant: containerPadding),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor, constant: -8),
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),

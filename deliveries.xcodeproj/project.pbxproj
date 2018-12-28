@@ -28,6 +28,7 @@
 		17B44E0F21D506970035AF78 /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */; };
 		17B44E1121D506D80035AF78 /* DeliveryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */; };
 		17B44E1321D510070035AF78 /* DeliveryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1221D510070035AF78 /* DeliveryDetailView.swift */; };
+		17B44E1921D5E0600035AF78 /* Pulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E1821D5E0600035AF78 /* Pulley.framework */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewModel.swift; sourceTree = "<group>"; };
 		17B44E1221D510070035AF78 /* DeliveryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailView.swift; sourceTree = "<group>"; };
+		17B44E1821D5E0600035AF78 /* Pulley.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulley.framework; path = Carthage/Build/iOS/Pulley.framework; sourceTree = SOURCE_ROOT; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				1764087A21D37E0500515C80 /* RxCocoa.framework in Frameworks */,
 				1764087821D37E0500515C80 /* RxRealm.framework in Frameworks */,
 				1764087721D37E0500515C80 /* RxSwift.framework in Frameworks */,
+				17B44E1921D5E0600035AF78 /* Pulley.framework in Frameworks */,
 				17B44E0D21D4DA8B0035AF78 /* Kingfisher.framework in Frameworks */,
 				1764087D21D37E0500515C80 /* Realm.framework in Frameworks */,
 				1764087921D37E0500515C80 /* RxAtomic.framework in Frameworks */,
@@ -160,6 +163,7 @@
 				1764087221D37E0500515C80 /* RxCocoa.framework */,
 				1764087021D37E0500515C80 /* RxRealm.framework */,
 				1764086F21D37E0500515C80 /* RxSwift.framework */,
+				17B44E1821D5E0600035AF78 /* Pulley.framework */,
 				17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */,
 			);
 			name = "Carthage Framework";
@@ -396,6 +400,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Pulley.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -408,6 +413,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRealm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Pulley.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
