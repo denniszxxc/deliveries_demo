@@ -58,9 +58,8 @@ class DeliveryListView: UIView {
     private func createViews() {
         // Blurred background
         self.backgroundColor = .clear
-        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(blurView)
         self.addConstraints([
@@ -88,7 +87,8 @@ class DeliveryListView: UIView {
         container.addSubview(centeredOverlayActivityIndicator)
         container.addConstraints([
             centeredOverlayActivityIndicator.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            centeredOverlayActivityIndicator.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            NSLayoutConstraint.init(item: centeredOverlayActivityIndicator, attribute: .centerY, relatedBy: .equal,
+                                    toItem: container, attribute: .centerY, multiplier: 0.5, constant: 0)
             ])
     }
 

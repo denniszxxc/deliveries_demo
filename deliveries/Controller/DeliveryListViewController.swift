@@ -63,11 +63,11 @@ class DeliveryListViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.loading.asObserver()
-            .subscribe(onNext: { (loading) in
+            .subscribe(onNext: { [weak self] (loading) in
                 if loading {
-                    self.view()?.showTableViewLoadingFooterView()
+                    self?.view()?.showTableViewLoadingFooterView()
                 } else {
-                    self.view()?.hidebleViewLoadingFooterView()
+                    self?.view()?.hidebleViewLoadingFooterView()
                 }
 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = loading

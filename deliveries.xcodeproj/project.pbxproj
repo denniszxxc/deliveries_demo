@@ -29,6 +29,9 @@
 		17B44E1121D506D80035AF78 /* DeliveryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */; };
 		17B44E1321D510070035AF78 /* DeliveryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1221D510070035AF78 /* DeliveryDetailView.swift */; };
 		17B44E1921D5E0600035AF78 /* Pulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E1821D5E0600035AF78 /* Pulley.framework */; };
+		17B44E1B21D5E5120035AF78 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1A21D5E5120035AF78 /* MapViewController.swift */; };
+		17B44E1D21D5E84C0035AF78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1C21D5E84C0035AF78 /* MapViewModel.swift */; };
+		17B44E1F21D5F4620035AF78 /* DeliveryAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1E21D5F4620035AF78 /* DeliveryAnnotationView.swift */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewModel.swift; sourceTree = "<group>"; };
 		17B44E1221D510070035AF78 /* DeliveryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailView.swift; sourceTree = "<group>"; };
 		17B44E1821D5E0600035AF78 /* Pulley.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulley.framework; path = Carthage/Build/iOS/Pulley.framework; sourceTree = SOURCE_ROOT; };
+		17B44E1A21D5E5120035AF78 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		17B44E1C21D5E84C0035AF78 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		17B44E1E21D5F4620035AF78 /* DeliveryAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAnnotationView.swift; sourceTree = "<group>"; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 			children = (
 				1764086221D0E09B00515C80 /* DeliveryListViewModel.swift */,
 				17B44E1021D506D80035AF78 /* DeliveryDetailViewModel.swift */,
+				17B44E1C21D5E84C0035AF78 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */,
 				17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */,
 				17B44E0E21D506970035AF78 /* DeliveryDetailViewController.swift */,
+				17B44E1A21D5E5120035AF78 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 				176B66E021D0AADE00081636 /* DeliveryListView.swift */,
 				1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */,
 				17B44E1221D510070035AF78 /* DeliveryDetailView.swift */,
+				17B44E1E21D5F4620035AF78 /* DeliveryAnnotationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,12 +459,15 @@
 				1764086321D0E09B00515C80 /* DeliveryListViewModel.swift in Sources */,
 				17B44E1321D510070035AF78 /* DeliveryDetailView.swift in Sources */,
 				1764086621D0E5B400515C80 /* DeliveryListRequest.swift in Sources */,
+				17B44E1D21D5E84C0035AF78 /* MapViewModel.swift in Sources */,
 				17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */,
 				17B44E0F21D506970035AF78 /* DeliveryDetailViewController.swift in Sources */,
 				176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */,
 				1764086821D36E2B00515C80 /* DeliveryListResponseMapper.swift in Sources */,
 				1764086B21D36E5B00515C80 /* Delivery.swift in Sources */,
+				17B44E1F21D5F4620035AF78 /* DeliveryAnnotationView.swift in Sources */,
 				17B44E1121D506D80035AF78 /* DeliveryDetailViewModel.swift in Sources */,
+				17B44E1B21D5E5120035AF78 /* MapViewController.swift in Sources */,
 				17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

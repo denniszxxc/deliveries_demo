@@ -20,12 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
         let initialViewController = DeliveryListViewController()
-        let rootNavContoller = DeliveryNavigationController.init(rootViewController: initialViewController)
-        let pulleyViewControlelr = PulleyViewController(contentViewController: UIViewController(),
-                                                        drawerViewController: rootNavContoller)
+        let bottomNavContoller = DeliveryNavigationController.init(rootViewController: initialViewController)
+        let mapViewController = MapViewController()
+        mapViewController.navigation = bottomNavContoller
+        let pulleyViewController = PulleyViewController(contentViewController: mapViewController,
+                                                        drawerViewController: bottomNavContoller)
 
-        pulleyViewControlelr.initialDrawerPosition = .partiallyRevealed
-        self.window?.rootViewController = pulleyViewControlelr
+        pulleyViewController.initialDrawerPosition = .partiallyRevealed
+        self.window?.rootViewController = pulleyViewController
         self.window?.makeKeyAndVisible()
         return true
     }

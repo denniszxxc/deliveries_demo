@@ -57,9 +57,8 @@ class DeliveryDetailView: UIView {
     private func createViews() {
         // Blurred background
         self.backgroundColor = .clear
-        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(blurView)
         self.addConstraints([

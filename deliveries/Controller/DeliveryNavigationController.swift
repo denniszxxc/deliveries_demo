@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DeliveryNavigation {
+protocol DeliveryNavigation: class {
     func showAlert(alert: UIAlertController)
     func showDeliveryDetail(deliveryId: Int)
     func backToList()
