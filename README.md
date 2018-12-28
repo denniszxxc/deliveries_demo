@@ -29,3 +29,4 @@ A demo iOS app showing a list of delivery items & its location on a map view
 - [SwiftLint](https://github.com/realm/SwiftLint) for enforcing Swift style
 
 ## License 
+MIT

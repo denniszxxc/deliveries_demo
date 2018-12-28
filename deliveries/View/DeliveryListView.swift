@@ -23,6 +23,7 @@ class DeliveryListView: UIView {
         tableView.backgroundColor = .clear
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 56.0
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 20, right: 0)
 
         tableView.register(DeliveryTableViewCell.self, forCellReuseIdentifier: DeliveryTableViewCell.cellIdentifier)
         return tableView

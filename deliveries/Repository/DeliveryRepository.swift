@@ -14,6 +14,10 @@ import RxRealm
 /*
  * Encapsulate data operations
  */
+
+private let skipPageUserDefaultKey = "skipPageUserDefaultKey"
+private let shouldFetchMoreUserDefaultKey = "shouldFetchMoreUserDefaultKey"
+
 class DeliveryRepository {
     enum FetchDeliveryError: Error {
         case network
@@ -23,8 +27,29 @@ class DeliveryRepository {
     static let DeliveryListFetchLimit = 20
 
     // Local State
-    var skipPage: Int = 0
-    var shouldFetchMore: Bool = true
+    var skipPage: Int {
+        didSet { userDefault.set(skipPage, forKey: skipPageUserDefaultKey) }
+    }
+    var shouldFetchMore: Bool {
+        didSet { userDefault.set(shouldFetchMore, forKey: shouldFetchMoreUserDefaultKey) }
+    }
+
+    var deliveryListReqeust = DeliveryListReqeust()
+    var userDefault = UserDefaults.standard
+
+    init() {
+        if userDefault.object(forKey: skipPageUserDefaultKey) != nil {
+            skipPage = userDefault.integer(forKey: skipPageUserDefaultKey)
+        } else {
+            skipPage = 0
+        }
+
+        if userDefault.object(forKey: shouldFetchMoreUserDefaultKey) != nil {
+            shouldFetchMore = userDefault.bool(forKey: shouldFetchMoreUserDefaultKey)
+        } else {
+            shouldFetchMore = true
+        }
+    }
 
     func fechDeliveries(cleanCachedDeliveries: Bool = false,
                         success: @escaping  () -> Void,
@@ -34,7 +59,7 @@ class DeliveryRepository {
             DispatchQueue.main.async { fail(error) }
         }
 
-        DeliveryListReqeust().start(
+        deliveryListReqeust.start(
             limit: DeliveryRepository.DeliveryListFetchLimit,
             offset: cleanCachedDeliveries ? 0 : skipPage * DeliveryRepository.DeliveryListFetchLimit,
             success: {[weak self] deliveries in
