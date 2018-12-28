@@ -28,6 +28,12 @@ class DeliveriesUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let scrollViewsQuery = XCUIApplication().scrollViews
+        let elementsQuery = scrollViewsQuery.otherElements
+        let deliveryStaticText = elementsQuery.staticTexts["Delivery"]
+        XCTAssertTrue(deliveryStaticText.exists)
+        XCTAssertTrue(elementsQuery.buttons["Refresh"].exists)
     }
 
 }

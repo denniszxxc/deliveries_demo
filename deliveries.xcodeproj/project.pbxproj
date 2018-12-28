@@ -18,7 +18,6 @@
 		1764087821D37E0500515C80 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087021D37E0500515C80 /* RxRealm.framework */; };
 		1764087921D37E0500515C80 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087121D37E0500515C80 /* RxAtomic.framework */; };
 		1764087A21D37E0500515C80 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087221D37E0500515C80 /* RxCocoa.framework */; };
-		1764087C21D37E0500515C80 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087421D37E0500515C80 /* RxBlocking.framework */; };
 		1764087D21D37E0500515C80 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087521D37E0500515C80 /* Realm.framework */; };
 		1764087E21D37E0500515C80 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087621D37E0500515C80 /* RealmSwift.framework */; };
 		176B66DD21D0A7D800081636 /* DeliveryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */; };
@@ -34,11 +33,22 @@
 		17B44E1F21D5F4620035AF78 /* DeliveryAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E1E21D5F4620035AF78 /* DeliveryAnnotationView.swift */; };
 		17B44E2121D5FAB90035AF78 /* SelectedDeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E2021D5FAB90035AF78 /* SelectedDeliveryListViewController.swift */; };
 		17B44E2321D5FB3E0035AF78 /* SelectedDeliveryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E2221D5FB3E0035AF78 /* SelectedDeliveryListViewModel.swift */; };
+		17B44E2921D657920035AF78 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087521D37E0500515C80 /* Realm.framework */; };
+		17B44E2A21D657920035AF78 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087621D37E0500515C80 /* RealmSwift.framework */; };
+		17B44E2B21D657920035AF78 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087121D37E0500515C80 /* RxAtomic.framework */; };
+		17B44E2D21D657920035AF78 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087221D37E0500515C80 /* RxCocoa.framework */; };
+		17B44E2E21D657920035AF78 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764087021D37E0500515C80 /* RxRealm.framework */; };
+		17B44E2F21D657920035AF78 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1764086F21D37E0500515C80 /* RxSwift.framework */; };
+		17B44E3021D657920035AF78 /* Pulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E1821D5E0600035AF78 /* Pulley.framework */; };
+		17B44E3121D657920035AF78 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E0C21D4DA8B0035AF78 /* Kingfisher.framework */; };
+		17B44E4221D659060035AF78 /* DeliveryRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E2421D656A50035AF78 /* DeliveryRepositoryTest.swift */; };
+		17B44E4621D6658F0035AF78 /* DeliveryListReqeustStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B44E4521D6658F0035AF78 /* DeliveryListReqeustStub.swift */; };
+		17B44E4821D66DCA0035AF78 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E4721D66DCA0035AF78 /* RxTest.framework */; };
+		17B44E4D21D676600035AF78 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B44E4C21D676600035AF78 /* RxBlocking.framework */; };
 		17CC711B21CBCAE600748540 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711A21CBCAE600748540 /* AppDelegate.swift */; };
 		17CC711D21CBCAE600748540 /* DeliveryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */; };
 		17CC712221CBCAE700748540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712121CBCAE700748540 /* Assets.xcassets */; };
 		17CC712521CBCAE700748540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CC712321CBCAE700748540 /* LaunchScreen.storyboard */; };
-		17CC713021CBCAE800748540 /* DeliveriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC712F21CBCAE800748540 /* DeliveriesTests.swift */; };
 		17CC713B21CBCAE800748540 /* DeliveriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC713A21CBCAE800748540 /* DeliveriesUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +82,6 @@
 		1764087021D37E0500515C80 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = SOURCE_ROOT; };
 		1764087121D37E0500515C80 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = SOURCE_ROOT; };
 		1764087221D37E0500515C80 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
-		1764087421D37E0500515C80 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = SOURCE_ROOT; };
 		1764087521D37E0500515C80 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = SOURCE_ROOT; };
 		1764087621D37E0500515C80 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
 		176B66DC21D0A7D800081636 /* DeliveryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryNavigationController.swift; sourceTree = "<group>"; };
@@ -88,6 +97,10 @@
 		17B44E1E21D5F4620035AF78 /* DeliveryAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAnnotationView.swift; sourceTree = "<group>"; };
 		17B44E2021D5FAB90035AF78 /* SelectedDeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDeliveryListViewController.swift; sourceTree = "<group>"; };
 		17B44E2221D5FB3E0035AF78 /* SelectedDeliveryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDeliveryListViewModel.swift; sourceTree = "<group>"; };
+		17B44E2421D656A50035AF78 /* DeliveryRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepositoryTest.swift; sourceTree = "<group>"; };
+		17B44E4521D6658F0035AF78 /* DeliveryListReqeustStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListReqeustStub.swift; sourceTree = "<group>"; };
+		17B44E4721D66DCA0035AF78 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = SOURCE_ROOT; };
+		17B44E4C21D676600035AF78 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = SOURCE_ROOT; };
 		17CC711721CBCAE600748540 /* deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deliveries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC711A21CBCAE600748540 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CC711C21CBCAE600748540 /* DeliveryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +108,6 @@
 		17CC712421CBCAE700748540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CC712621CBCAE700748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CC712B21CBCAE800748540 /* deliveriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deliveriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17CC712F21CBCAE800748540 /* DeliveriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesTests.swift; sourceTree = "<group>"; };
 		17CC713121CBCAE800748540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CC713621CBCAE800748540 /* deliveriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deliveriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC713A21CBCAE800748540 /* DeliveriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesUITests.swift; sourceTree = "<group>"; };
@@ -115,7 +127,6 @@
 				1764087D21D37E0500515C80 /* Realm.framework in Frameworks */,
 				1764087921D37E0500515C80 /* RxAtomic.framework in Frameworks */,
 				1764087E21D37E0500515C80 /* RealmSwift.framework in Frameworks */,
-				1764087C21D37E0500515C80 /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +134,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B44E2A21D657920035AF78 /* RealmSwift.framework in Frameworks */,
+				17B44E4D21D676600035AF78 /* RxBlocking.framework in Frameworks */,
+				17B44E2921D657920035AF78 /* Realm.framework in Frameworks */,
+				17B44E2F21D657920035AF78 /* RxSwift.framework in Frameworks */,
+				17B44E2B21D657920035AF78 /* RxAtomic.framework in Frameworks */,
+				17B44E3121D657920035AF78 /* Kingfisher.framework in Frameworks */,
+				17B44E2D21D657920035AF78 /* RxCocoa.framework in Frameworks */,
+				17B44E2E21D657920035AF78 /* RxRealm.framework in Frameworks */,
+				17B44E4821D66DCA0035AF78 /* RxTest.framework in Frameworks */,
+				17B44E3021D657920035AF78 /* Pulley.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +192,6 @@
 				1764087521D37E0500515C80 /* Realm.framework */,
 				1764087621D37E0500515C80 /* RealmSwift.framework */,
 				1764087121D37E0500515C80 /* RxAtomic.framework */,
-				1764087421D37E0500515C80 /* RxBlocking.framework */,
 				1764087221D37E0500515C80 /* RxCocoa.framework */,
 				1764087021D37E0500515C80 /* RxRealm.framework */,
 				1764086F21D37E0500515C80 /* RxSwift.framework */,
@@ -210,6 +230,14 @@
 				17B44E0821D3898A0035AF78 /* DeliveryRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		17B44E4421D6657F0035AF78 /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				17B44E4521D6658F0035AF78 /* DeliveryListReqeustStub.swift */,
+			);
+			path = Stub;
 			sourceTree = "<group>";
 		};
 		17CC710E21CBCAE600748540 = {
@@ -254,8 +282,11 @@
 		17CC712E21CBCAE800748540 /* deliveriesTests */ = {
 			isa = PBXGroup;
 			children = (
-				17CC712F21CBCAE800748540 /* DeliveriesTests.swift */,
+				17B44E2421D656A50035AF78 /* DeliveryRepositoryTest.swift */,
+				17B44E4421D6657F0035AF78 /* Stub */,
 				17CC713121CBCAE800748540 /* Info.plist */,
+				17B44E4C21D676600035AF78 /* RxBlocking.framework */,
+				17B44E4721D66DCA0035AF78 /* RxTest.framework */,
 			);
 			path = deliveriesTests;
 			sourceTree = "<group>";
@@ -298,6 +329,7 @@
 				17CC712721CBCAE800748540 /* Sources */,
 				17CC712821CBCAE800748540 /* Frameworks */,
 				17CC712921CBCAE800748540 /* Resources */,
+				17B44E4921D66DEE0035AF78 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -410,7 +442,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
@@ -423,7 +454,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRealm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
@@ -450,6 +480,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		17B44E4921D66DEE0035AF78 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxTest.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -484,7 +536,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CC713021CBCAE800748540 /* DeliveriesTests.swift in Sources */,
+				17B44E4221D659060035AF78 /* DeliveryRepositoryTest.swift in Sources */,
+				17B44E4621D6658F0035AF78 /* DeliveryListReqeustStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +755,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = deliveriesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -722,6 +780,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = deliveriesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,6 +804,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveriesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,6 +824,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43WSMCR35P;
 				INFOPLIST_FILE = deliveriesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
