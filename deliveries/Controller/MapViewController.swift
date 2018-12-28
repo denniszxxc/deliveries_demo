@@ -58,6 +58,7 @@ class MapViewController: UIViewController {
                 }
 
                 self?.mapView?.addAnnotations(annotations)
+                self?.mapView?.showAnnotations(annotations, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -77,7 +78,8 @@ extension MapViewController: MKMapViewDelegate {
                 }
                 return nil
             }
-            // TODO: Show selected Delivery List
+            navigation?.showSelectedDeliveryList(deliveryIdList: deliveryIdList)
+
             print("deliveryIdList \(deliveryIdList) ")
         } else if let deliveryAnnotation = view.annotation as? MapViewModel.DeliveryAnnotation {
             navigation?.showDeliveryDetail(deliveryId: deliveryAnnotation.id)

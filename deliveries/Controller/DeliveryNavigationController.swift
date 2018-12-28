@@ -11,6 +11,7 @@ import UIKit
 protocol DeliveryNavigation: class {
     func showAlert(alert: UIAlertController)
     func showDeliveryDetail(deliveryId: Int)
+    func showSelectedDeliveryList(deliveryIdList: [Int])
     func backToList()
 }
 
@@ -36,6 +37,13 @@ extension DeliveryNavigationController: DeliveryNavigation {
         let detailViewController = DeliveryDetailViewController()
         detailViewController.viewModel = DeliveryDetailViewModel(deliveryId: deliveryId)
         self.pushViewController(detailViewController, animated: true)
+    }
+
+    func showSelectedDeliveryList(deliveryIdList: [Int]) {
+        let selecteListViewController = SelectedDeliveryListViewController()
+        selecteListViewController.selectedDeliveryIds = deliveryIdList
+        self.popToRootViewController(animated: false)
+        self.pushViewController(selecteListViewController, animated: true)
     }
 
     func backToList() {

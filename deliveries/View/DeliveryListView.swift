@@ -28,6 +28,15 @@ class DeliveryListView: UIView {
         return tableView
     }()
 
+    lazy var title: UILabel = {
+        let title = UILabel.init()
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.text = NSLocalizedString("delivery_list__title", comment: "")
+        title.font = UIFont.preferredFont(forTextStyle: .title1)
+        title.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return title
+    }()
+
     lazy var refreshButton: UIButton = {
         let refreshButton = UIButton.init(type: .system)
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
@@ -95,12 +104,6 @@ class DeliveryListView: UIView {
     private func createHeaderView() -> UIView {
         let header = UIView()
         header.translatesAutoresizingMaskIntoConstraints = false
-
-        let title = UILabel.init()
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = NSLocalizedString("delivery_list__title", comment: "")
-        title.font = UIFont.preferredFont(forTextStyle: .title1)
-        title.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false

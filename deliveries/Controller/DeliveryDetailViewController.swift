@@ -43,8 +43,12 @@ class DeliveryDetailViewController: UIViewController {
     }
 
     func showInvalidItemAlert() {
-        let alert = UIAlertController.init(title: "Error", message: "Invalid Delivery", preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "Back", style: .default, handler: { [weak self] (_) in
+        let title = NSLocalizedString("delivery_detail__alert_error", comment: "")
+        let message = NSLocalizedString("delivery_detail__alert_message", comment: "")
+        let back = NSLocalizedString("delivery_detail__alert_back", comment: "")
+
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: back, style: .default, handler: { [weak self] (_) in
             alert.dismiss(animated: true, completion: nil)
             if let navigation = self?.navigationController as? DeliveryNavigation {
                 navigation.backToList()

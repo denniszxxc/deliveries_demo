@@ -4,3 +4,7 @@
 "delivery_list__alert_network_error" = "網絡錯誤";
 "delivery_list__alert_message" = "將顯示快取訂單";
 "delivery_list__alert_ok" = "確定";
+"selected_delivery_list__title" = "%d個訂單";
+"delivery_detail__alert_error" = "錯誤";
+"delivery_detail__alert_message" = "訂單無效";
+"delivery_detail__alert_back" = "返回";

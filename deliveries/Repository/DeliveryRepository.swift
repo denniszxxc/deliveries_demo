@@ -80,6 +80,15 @@ class DeliveryRepository {
             .collection(from: deliveries)
     }
 
+    func deliveryObservable(idList: [Int]) -> Observable<Results<Delivery>>? {
+        guard let realm = try? Realm() else {
+            return nil
+        }
+        let deliveries = realm.objects(Delivery.self).filter("id IN %@", idList).sorted(byKeyPath: "id")
+        return Observable
+            .collection(from: deliveries)
+    }
+
     func deliveryItemObservable(id: Int) ->  Observable<Results<Delivery>>? {
         guard let realm = try? Realm() else {
             return nil

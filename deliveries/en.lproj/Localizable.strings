@@ -4,3 +4,7 @@
 "delivery_list__alert_network_error" = "Network Error";
 "delivery_list__alert_message" = "Cached deliveries will be shown";
 "delivery_list__alert_ok" = "OK";
+"selected_delivery_list__title" = "%d Deliveries";
+"delivery_detail__alert_error" = "Error";
+"delivery_detail__alert_message" = "Invalid Delivery";
+"delivery_detail__alert_back" = "Back";
