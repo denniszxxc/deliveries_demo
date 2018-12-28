@@ -20,6 +20,7 @@ class DeliveryDetailViewModel {
     var invalidItemObservable: Observable<Bool>
     var titleObservable: Observable<String>?
     var subtitleObservable: Observable<String>?
+    var imageUrlObservable: Observable<String?>?
 
     init(deliveryId: Int) {
         self.deliveryId = deliveryId
@@ -33,6 +34,7 @@ class DeliveryDetailViewModel {
 
         self.titleObservable = deliveryItemObservable.map({ $0.first?.itemDescription ?? "" })
         self.subtitleObservable = deliveryItemObservable.map({ $0.first?.location?.address ?? "" })
+        self.imageUrlObservable = deliveryItemObservable.map({ $0.first?.imageUrl })
 
         self.invalidItemObservable = deliveryItemObservable.map({ (deliveryResults) -> Bool in
             guard let first =  deliveryResults.first else {

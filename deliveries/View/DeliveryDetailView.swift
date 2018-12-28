@@ -44,6 +44,18 @@ class DeliveryDetailView: UIView {
         return subtitleLabel
     }()
 
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.lightGray
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 4
+        return imageView
+    }()
+
+    var imageViewWidthHeightConstraint: NSLayoutConstraint?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createViews()
@@ -87,5 +99,25 @@ class DeliveryDetailView: UIView {
             subtitleLabel.leftAnchor.constraint(equalTo: container.leftAnchor, constant: containerPadding),
             subtitleLabel.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -containerPadding)
         ])
+
+        container.addSubview(imageView)
+
+        imageViewWidthHeightConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor,
+                                                                          multiplier: 16.0/9.0)
+        imageViewWidthHeightConstraint?.isActive = true
+
+        container.addConstraints([
+            imageView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            imageView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: containerPadding),
+            imageView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -containerPadding)
+            ])
+    }
+
+    func updateImageViewAspectRatio(ratio: CGFloat) {
+        imageViewWidthHeightConstraint?.isActive = false
+
+        imageViewWidthHeightConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor,
+                                                                          multiplier: ratio)
+        imageViewWidthHeightConstraint?.isActive = true
     }
 }

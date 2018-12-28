@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Kingfisher
 
 class DeliveryDetailViewController: UIViewController {
     var viewModel: DeliveryDetailViewModel?
@@ -25,6 +26,9 @@ class DeliveryDetailViewController: UIViewController {
         if let detailView = view as? DeliveryDetailView {
             viewModel?.titleObservable?.bind(to: detailView.titleLabel.rx.text).disposed(by: disposeBag)
             viewModel?.subtitleObservable?.bind(to: detailView.subtitleLabel.rx.text).disposed(by: disposeBag)
+            viewModel?.imageUrlObservable?.subscribe(onNext: { [weak self] (url) in
+                self?.setImage(url: url)
+            }).disposed(by: disposeBag)
 
             viewModel?.invalidItemObservable.asObservable()
                 .subscribe(onNext: {[weak self] (invalidDelivery) in
@@ -33,6 +37,21 @@ class DeliveryDetailViewController: UIViewController {
                     }
                 })
                 .disposed(by: disposeBag)
+        }
+    }
+
+    func setImage(url: String?) {
+        if let detailView = view as? DeliveryDetailView, let imageUrl = url {
+            let url = URL(string: imageUrl)
+            detailView.imageView.kf.indicatorType = .activity
+            detailView.imageView.kf.setImage(with: url,
+                                             completionHandler: { (result) in
+                                                if let resultImage = result.value?.image.size {
+                                                    let imageRatio = resultImage.width / resultImage.height
+                                                    detailView.updateImageViewAspectRatio(ratio: imageRatio)
+                                                }
+
+            })
         }
     }
 
