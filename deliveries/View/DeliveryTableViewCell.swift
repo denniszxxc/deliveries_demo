@@ -68,8 +68,12 @@ class DeliveryTableViewCell: UITableViewCell {
 
             thumbnailImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12),
             thumbnailImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12),
-            thumbnailImageView.widthAnchor.constraint(equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight),
-            thumbnailImageView.heightAnchor.constraint(equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight),
+            thumbnailImageView.widthAnchor.constraint(
+                equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight
+            ),
+            thumbnailImageView.heightAnchor.constraint(
+                equalToConstant: DeliveryTableViewCell.thumbnailImageWidthHeight
+            ),
             thumbnailImageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -20)
             ])
     }

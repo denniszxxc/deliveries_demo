@@ -8,15 +8,16 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 class DeliveryDetailViewModel {
     let deliveryId: Int
 
     let deliveryRepository = DeliveryRepository()
 
-    private var deliveryItemObservable: Observable<Delivery>?
+    private var deliveryItemObservable: Observable<Results<Delivery>>?
 
-    var invalidItemObservable = BehaviorSubject<Bool>(value: false)
+    var invalidItemObservable: Observable<Bool>
     var titleObservable: Observable<String>?
     var subtitleObservable: Observable<String>?
 
@@ -26,11 +27,18 @@ class DeliveryDetailViewModel {
         self.deliveryItemObservable = deliveryRepository.deliveryItemObservable(id: deliveryId)
 
         guard let deliveryItemObservable = self.deliveryItemObservable else {
-            // TODO: handle delivery item not found
+            self.invalidItemObservable = BehaviorSubject<Bool>(value: true)
             return
         }
 
-        titleObservable = deliveryItemObservable.map({ $0.itemDescription ?? "" })
-        subtitleObservable = deliveryItemObservable.map({ $0.location?.address ?? "" })
+        self.titleObservable = deliveryItemObservable.map({ $0.first?.itemDescription ?? "" })
+        self.subtitleObservable = deliveryItemObservable.map({ $0.first?.location?.address ?? "" })
+
+        self.invalidItemObservable = deliveryItemObservable.map({ (deliveryResults) -> Bool in
+            guard let first =  deliveryResults.first else {
+                return true
+            }
+            return first.isInvalidated
+        })
     }
 }

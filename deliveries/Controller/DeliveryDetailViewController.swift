@@ -26,13 +26,33 @@ class DeliveryDetailViewController: UIViewController {
             viewModel?.titleObservable?.bind(to: detailView.titleLabel.rx.text).disposed(by: disposeBag)
             viewModel?.subtitleObservable?.bind(to: detailView.subtitleLabel.rx.text).disposed(by: disposeBag)
 
-            // TODO: handle delivery not found / became invalid
+            viewModel?.invalidItemObservable.asObservable()
+                .subscribe(onNext: {[weak self] (invalidDelivery) in
+                    if invalidDelivery {
+                        self?.showInvalidItemAlert()
+                    }
+                })
+                .disposed(by: disposeBag)
         }
     }
 
     @objc func didClickDismiss(_: UIButton) {
         if let navigation = self.navigationController as? DeliveryNavigation {
             navigation.backToList()
+        }
+    }
+
+    func showInvalidItemAlert() {
+        let alert = UIAlertController.init(title: "Error", message: "Invalid Delivery", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Back", style: .default, handler: { [weak self] (_) in
+            alert.dismiss(animated: true, completion: nil)
+            if let navigation = self?.navigationController as? DeliveryNavigation {
+                navigation.backToList()
+            }
+        }))
+
+        if let navigation = self.navigationController as? DeliveryNavigation {
+            navigation.showAlert(alert: alert)
         }
     }
 }
