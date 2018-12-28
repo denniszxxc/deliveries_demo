@@ -13,7 +13,7 @@ import RxSwift
 class MapViewController: UIViewController {
     weak var navigation: DeliveryNavigation?
 
-    var viewModel =  MapViewModel()
+    var viewModel = MapViewModel()
     var disposeBag = DisposeBag()
 
     weak var mapView: MKMapView?
@@ -79,11 +79,12 @@ extension MapViewController: MKMapViewDelegate {
                 return nil
             }
             navigation?.showSelectedDeliveryList(deliveryIdList: deliveryIdList)
-
-            print("deliveryIdList \(deliveryIdList) ")
         } else if let deliveryAnnotation = view.annotation as? MapViewModel.DeliveryAnnotation {
             navigation?.showDeliveryDetail(deliveryId: deliveryAnnotation.id)
         }
+    }
 
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        navigation?.backToList()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pulley
 
 protocol DeliveryNavigation: class {
     func showAlert(alert: UIAlertController)
@@ -37,6 +38,10 @@ extension DeliveryNavigationController: DeliveryNavigation {
         let detailViewController = DeliveryDetailViewController()
         detailViewController.viewModel = DeliveryDetailViewModel(deliveryId: deliveryId)
         self.pushViewController(detailViewController, animated: true)
+
+        if pulleyViewController?.drawerPosition != .partiallyRevealed {
+            pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+        }
     }
 
     func showSelectedDeliveryList(deliveryIdList: [Int]) {
@@ -44,9 +49,17 @@ extension DeliveryNavigationController: DeliveryNavigation {
         selecteListViewController.selectedDeliveryIds = deliveryIdList
         self.popToRootViewController(animated: false)
         self.pushViewController(selecteListViewController, animated: true)
+
+        if pulleyViewController?.drawerPosition != .partiallyRevealed {
+            pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+        }
     }
 
     func backToList() {
         self.popToRootViewController(animated: true)
+
+        if pulleyViewController?.drawerPosition != .partiallyRevealed {
+            pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+        }
     }
 }
