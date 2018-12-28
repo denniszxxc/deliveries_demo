@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let bottomNavContoller = DeliveryNavigationController.init(rootViewController: initialViewController)
         let mapViewController = MapViewController()
         mapViewController.navigation = bottomNavContoller
+        bottomNavContoller.mapViewSelect = mapViewController
         let pulleyViewController = PulleyViewController(contentViewController: mapViewController,
                                                         drawerViewController: bottomNavContoller)
 

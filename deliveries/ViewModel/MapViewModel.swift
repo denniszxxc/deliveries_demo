@@ -14,14 +14,35 @@ import MapKit
 class MapViewModel {
 
     private let deliveryRepository = DeliveryRepository()
+    private let focusedDeliveryId = BehaviorSubject<Int?>(value: nil)
     var annotationObservable: Observable<[DeliveryAnnotation]>?
 
     init() {
-        annotationObservable = deliveryRepository.deliveryObservable()?
-            .map({ deliveryResults in
-                return deliveryResults.toArray()
-                    .compactMap({ DeliveryAnnotation(delivery: $0) })
+        annotationObservable = focusedDeliveryId.asObservable()
+            .flatMapLatest({ (focusdId: Int?)  -> Observable<Results<Delivery>> in
+                if let focusdId = focusdId {
+                    return self.deliveryRepository.deliveryObservable(idList: [focusdId])!
+                } else {
+                    return self.deliveryRepository.deliveryObservable()!
+                }
+            }).map({ (deliveryResults: Results<Delivery>) -> [DeliveryAnnotation] in
+                return deliveryResults.toArray().compactMap({ DeliveryAnnotation(delivery: $0) })
             })
+
+    }
+
+    public func focusingItemId() -> Int? {
+        return (try? focusedDeliveryId.value()) ?? nil
+    }
+
+    public func focusItem(id: Int?) {
+        focusedDeliveryId.onNext(id)
+    }
+
+    public func stopFocusing() {
+        if focusingItemId() != nil {
+            focusedDeliveryId.onNext(nil)
+        }
     }
 
     class DeliveryAnnotation: NSObject, MKAnnotation {
@@ -37,7 +58,7 @@ class MapViewModel {
                 !delivery.isInvalidated,
                 let location = delivery.location,
                 !location.isInvalidated else {
-                return nil
+                    return nil
             }
             id = delivery.id
             lat = location.lat

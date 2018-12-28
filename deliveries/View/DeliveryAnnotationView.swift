@@ -29,4 +29,15 @@ class DeliveryAnnotationView: MKMarkerAnnotationView {
         displayPriority = .defaultHigh
         subtitleVisibility = .adaptive
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        if selected {
+            displayPriority = .required
+        } else {
+            displayPriority = .defaultHigh
+        }
+
+    }
 }

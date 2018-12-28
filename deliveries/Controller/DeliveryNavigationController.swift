@@ -11,12 +11,15 @@ import Pulley
 
 protocol DeliveryNavigation: class {
     func showAlert(alert: UIAlertController)
-    func showDeliveryDetail(deliveryId: Int)
+    func showDeliveryDetail(deliveryId: Int, selectMapItem: Bool)
     func showSelectedDeliveryList(deliveryIdList: [Int])
     func backToList()
+    func back()
 }
 
 class DeliveryNavigationController: UINavigationController {
+
+    weak var mapViewSelect: MapViewSelectionAction?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,16 @@ extension DeliveryNavigationController: DeliveryNavigation {
         self.present(alert, animated: true, completion: nil)
     }
 
-    func showDeliveryDetail(deliveryId: Int) {
+    func showDeliveryDetail(deliveryId: Int, selectMapItem: Bool) {
+        if let topDetailVC = self.topViewController as? DeliveryDetailViewController,
+            topDetailVC.viewModel?.deliveryId == deliveryId {
+            return // Avoid pushing same detail page twice
+        }
+
+        if selectMapItem {
+            mapViewSelect?.selectDelivery(id: deliveryId)
+        }
+
         let detailViewController = DeliveryDetailViewController()
         detailViewController.viewModel = DeliveryDetailViewModel(deliveryId: deliveryId)
         self.pushViewController(detailViewController, animated: true)
@@ -55,8 +67,16 @@ extension DeliveryNavigationController: DeliveryNavigation {
         }
     }
 
+    func back() {
+        self.popViewController(animated: true)
+        if pulleyViewController?.drawerPosition != .partiallyRevealed {
+            pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+        }
+    }
+
     func backToList() {
         self.popToRootViewController(animated: true)
+        mapViewSelect?.deselectAnyDelivery()
 
         if pulleyViewController?.drawerPosition != .partiallyRevealed {
             pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)

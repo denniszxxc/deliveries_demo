@@ -10,6 +10,11 @@ import UIKit
 import MapKit
 import RxSwift
 
+protocol MapViewSelectionAction: class {
+    func selectDelivery(id: Int)
+    func deselectAnyDelivery()
+}
+
 class MapViewController: UIViewController {
     weak var navigation: DeliveryNavigation?
 
@@ -59,8 +64,21 @@ class MapViewController: UIViewController {
 
                 self?.mapView?.addAnnotations(annotations)
                 self?.mapView?.showAnnotations(annotations, animated: true)
+//                if annotations.count == 1, let item = annotations.first {
+//                    self?.mapView?.selectAnnotation(item, animated: false)
+//                }
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension MapViewController: MapViewSelectionAction {
+    func selectDelivery(id: Int) {
+        viewModel.focusItem(id: id)
+    }
+
+    func deselectAnyDelivery() {
+        viewModel.stopFocusing()
     }
 }
 
@@ -80,11 +98,16 @@ extension MapViewController: MKMapViewDelegate {
             }
             navigation?.showSelectedDeliveryList(deliveryIdList: deliveryIdList)
         } else if let deliveryAnnotation = view.annotation as? MapViewModel.DeliveryAnnotation {
-            navigation?.showDeliveryDetail(deliveryId: deliveryAnnotation.id)
+            navigation?.showDeliveryDetail(deliveryId: deliveryAnnotation.id, selectMapItem: false)
         }
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        navigation?.backToList()
+        navigation?.back()
+
+        if let deliveryAnnotation = view.annotation as? MapViewModel.DeliveryAnnotation,
+            deliveryAnnotation.id == viewModel.focusingItemId() {
+            viewModel.stopFocusing()
+        }
     }
 }

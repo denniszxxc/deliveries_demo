@@ -108,7 +108,7 @@ extension DeliveryListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         if let navigation = self.navigationController as? DeliveryNavigation,
             let deliveryId = viewModel.deliveryIdAt(index: indexPath.row) {
-            navigation.showDeliveryDetail(deliveryId: deliveryId)
+            navigation.showDeliveryDetail(deliveryId: deliveryId, selectMapItem: true)
         }
     }
 
