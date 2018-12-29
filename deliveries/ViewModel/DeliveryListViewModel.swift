@@ -12,7 +12,7 @@ import RealmSwift
 
 class DeliveryListViewModel {
 
-    private let deliveryRepository = DeliveryRepository()
+    private var deliveryRepository: DeliveryRepository
     var deliveryObservable: Observable<Results<Delivery>>?
     let loading = BehaviorSubject<Bool>(value: false)
     let cleanFetchloading = BehaviorSubject<Bool>(value: false)
@@ -20,7 +20,8 @@ class DeliveryListViewModel {
 
     private var deliveryResult: Results<Delivery>?
 
-    init() {
+    init(deliveryRepository: DeliveryRepository = DeliveryRepository()) {
+        self.deliveryRepository = deliveryRepository
         deliveryObservable = deliveryRepository.deliveryObservable()?
             .do(onNext: { [weak self] (deliveryResult) in
                 self?.deliveryResult = deliveryResult

@@ -15,7 +15,7 @@ class DeliveryListReqeustStub: DeliveryListReqeust {
     var resultItemCount = 10
     var failReason = DeliveryRepository.FetchDeliveryError.network
 
-    private func sampleDeliveryList() -> [Delivery] {
+    func sampleDeliveryList() -> [Delivery] {
         var result = [Delivery]()
         for count in 0 ..< resultItemCount {
             result.append(Delivery(value: ["id": count, "description": String(count)]))

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1735999621D7533F002E970E /* DeliveryRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999521D7533F002E970E /* DeliveryRepositoryStub.swift */; };
+		1735999821D754D6002E970E /* MapViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999721D754D6002E970E /* MapViewModelTest.swift */; };
+		1735999A21D75BD5002E970E /* DeliveryDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999921D75BD5002E970E /* DeliveryDetailViewModelTest.swift */; };
+		1735999C21D762FD002E970E /* SelectedDeliveryListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999B21D762FD002E970E /* SelectedDeliveryListViewModelTest.swift */; };
+		1735999E21D76543002E970E /* DeliveryListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999D21D76543002E970E /* DeliveryListViewModelTest.swift */; };
+		173599A021D769D1002E970E /* DeliveryListResponseMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735999F21D769D1002E970E /* DeliveryListResponseMapperTest.swift */; };
 		1764085B21D0C14E00515C80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1764085D21D0C14E00515C80 /* Localizable.strings */; };
 		1764086021D0C64F00515C80 /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */; };
 		1764086321D0E09B00515C80 /* DeliveryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764086221D0E09B00515C80 /* DeliveryListViewModel.swift */; };
@@ -70,6 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1735999521D7533F002E970E /* DeliveryRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepositoryStub.swift; sourceTree = "<group>"; };
+		1735999721D754D6002E970E /* MapViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTest.swift; sourceTree = "<group>"; };
+		1735999921D75BD5002E970E /* DeliveryDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewModelTest.swift; sourceTree = "<group>"; };
+		1735999B21D762FD002E970E /* SelectedDeliveryListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDeliveryListViewModelTest.swift; sourceTree = "<group>"; };
+		1735999D21D76543002E970E /* DeliveryListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListViewModelTest.swift; sourceTree = "<group>"; };
+		1735999F21D769D1002E970E /* DeliveryListResponseMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListResponseMapperTest.swift; sourceTree = "<group>"; };
 		1764085C21D0C14E00515C80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1764085E21D0C17500515C80 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1764085F21D0C64F00515C80 /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				17B44E4521D6658F0035AF78 /* DeliveryListReqeustStub.swift */,
+				1735999521D7533F002E970E /* DeliveryRepositoryStub.swift */,
 			);
 			path = Stub;
 			sourceTree = "<group>";
@@ -283,6 +296,11 @@
 			isa = PBXGroup;
 			children = (
 				17B44E2421D656A50035AF78 /* DeliveryRepositoryTest.swift */,
+				1735999D21D76543002E970E /* DeliveryListViewModelTest.swift */,
+				1735999921D75BD5002E970E /* DeliveryDetailViewModelTest.swift */,
+				1735999B21D762FD002E970E /* SelectedDeliveryListViewModelTest.swift */,
+				1735999721D754D6002E970E /* MapViewModelTest.swift */,
+				1735999F21D769D1002E970E /* DeliveryListResponseMapperTest.swift */,
 				17B44E4421D6657F0035AF78 /* Stub */,
 				17CC713121CBCAE800748540 /* Info.plist */,
 				17B44E4C21D676600035AF78 /* RxBlocking.framework */,
@@ -536,8 +554,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1735999621D7533F002E970E /* DeliveryRepositoryStub.swift in Sources */,
+				1735999A21D75BD5002E970E /* DeliveryDetailViewModelTest.swift in Sources */,
+				1735999E21D76543002E970E /* DeliveryListViewModelTest.swift in Sources */,
+				173599A021D769D1002E970E /* DeliveryListResponseMapperTest.swift in Sources */,
 				17B44E4221D659060035AF78 /* DeliveryRepositoryTest.swift in Sources */,
+				1735999C21D762FD002E970E /* SelectedDeliveryListViewModelTest.swift in Sources */,
 				17B44E4621D6658F0035AF78 /* DeliveryListReqeustStub.swift in Sources */,
+				1735999821D754D6002E970E /* MapViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

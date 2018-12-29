@@ -13,12 +13,10 @@ import MapKit
 
 class MapViewModel {
 
-    private let deliveryRepository = DeliveryRepository()
+    var deliveryRepository = DeliveryRepository()
     private let focusedDeliveryId = BehaviorSubject<Int?>(value: nil)
-    var annotationObservable: Observable<[DeliveryAnnotation]>?
-
-    init() {
-        annotationObservable = focusedDeliveryId.asObservable()
+    lazy var annotationObservable: Observable<[DeliveryAnnotation]>? = {
+        return focusedDeliveryId.asObservable()
             .flatMapLatest({ (focusdId: Int?)  -> Observable<Results<Delivery>> in
                 if let focusdId = focusdId {
                     return self.deliveryRepository.deliveryObservable(idList: [focusdId])!
@@ -28,8 +26,7 @@ class MapViewModel {
             }).map({ (deliveryResults: Results<Delivery>) -> [DeliveryAnnotation] in
                 return deliveryResults.toArray().compactMap({ DeliveryAnnotation(delivery: $0) })
             })
-
-    }
+    }()
 
     public func focusingItemId() -> Int? {
         return (try? focusedDeliveryId.value()) ?? nil

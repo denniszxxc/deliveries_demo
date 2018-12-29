@@ -3,7 +3,7 @@
 //  deliveries
 //
 //  Created by Dennis Li on 28/12/2018.
-//  Copyright © 2018年 Dennis Li. All rights reserved.
+//  Copyright © 2018 Dennis Li. All rights reserved.
 //
 
 import Foundation
@@ -13,14 +13,16 @@ import RealmSwift
 class SelectedDeliveryListViewModel {
     var selectedDeliveresId: [Int]
 
-    private let deliveryRepository = DeliveryRepository()
+    private var deliveryRepository = DeliveryRepository()
     var deliveryObservable: Observable<Results<Delivery>>?
     var deliveryCountObservable: Observable<Int>?
 
     private var deliveryResult: Results<Delivery>?
 
-    init(selectedDeliveresId: [Int]) {
+    init(selectedDeliveresId: [Int],
+         deliveryRepository: DeliveryRepository = DeliveryRepository()) {
         self.selectedDeliveresId = selectedDeliveresId
+        self.deliveryRepository = deliveryRepository
         deliveryObservable = deliveryRepository.deliveryObservable(idList: selectedDeliveresId)?
             .do(onNext: { [weak self] (deliveryResult) in
                 self?.deliveryResult = deliveryResult

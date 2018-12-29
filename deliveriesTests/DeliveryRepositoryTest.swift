@@ -3,7 +3,7 @@
 //  deliveriesTests
 //
 //  Created by Dennis Li on 28/12/2018.
-//  Copyright © 2018年 Dennis Li. All rights reserved.
+//  Copyright © 2018 Dennis Li. All rights reserved.
 //
 
 import XCTest
@@ -28,23 +28,34 @@ class DeliveryRepositoryTest: XCTestCase {
     }
 
     override func tearDown() {
+        if let realm = try? Realm() {
+            realm.beginWrite()
+            realm.deleteAll()
+            try? realm.commitWrite()
+        }
+
         deliveryRepository = nil
     }
 
     func testFetchDeliveriesSuccess() {
-        let deliveryCount = deliveryRepository.deliveryObservable()?
-            .map({ $0.count })
-            .take(1)
+        let deliveryCount = {
+            return self.deliveryRepository.deliveryObservable()?
+                .take(1)
+                .map({ result in
+                    return result.count
+                })
+        }
 
         // Given App has zero delivery items
-        let currentDeliveryCount = try? deliveryCount?.toBlocking().last()! ?? -1
+        let currentDeliveryCount = try? deliveryCount()?.toBlocking(timeout: 1).first()! ?? -1
         XCTAssertEqual(currentDeliveryCount, 0, "Given realm have 0 item")
 
         let promise = expectation(description: "Sub request to complete")
         // When Start a fetch
         deliveryRepository.fechDeliveries(cleanCachedDeliveries: true, success: {
             // Then realm should have 10 Delivery Item
-            let afterUpdateDeliveryCount = try?  deliveryCount?.toBlocking().last()! ?? -1
+            _ = try? Realm().refresh()
+            let afterUpdateDeliveryCount = try? deliveryCount()?.toBlocking(timeout: 1).first()! ?? -1
             XCTAssertEqual(afterUpdateDeliveryCount, 10, "Then realm should have 10 Delivery Item")
 
             XCTAssertEqual(self.deliveryRepository.skipPage, 1, "Skip Page become 1 after clean fetch")
@@ -77,7 +88,8 @@ class DeliveryRepositoryTest: XCTestCase {
 
         deliveryRepository.fechDeliveries(cleanCachedDeliveries: false, success: {
             // Then realm should have 0 Delivery Item
-            let afterUpdateDeliveryCount = try?  deliveryCount?.toBlocking().last()! ?? -1
+            _ = try? Realm().refresh()
+            let afterUpdateDeliveryCount = try?  deliveryCount?.toBlocking(timeout: 1).first()! ?? -1
             XCTAssertEqual(afterUpdateDeliveryCount, 0, "Then realm should have 0 Delivery Item")
 
             XCTAssertEqual(self.deliveryRepository.skipPage, 0, "Skip Page remains 0 after fetch")
@@ -105,5 +117,31 @@ class DeliveryRepositoryTest: XCTestCase {
         XCTAssertTrue(shouldFetchItem19)
     }
 
-    // TODO: Test add and fetch item
+    func testObserveListOfItem() {
+        let promise = expectation(description: "Sub request to complete")
+
+        let requestStub = DeliveryListReqeustStub()
+        let deliveriesAdded = requestStub.sampleDeliveryList()
+        deliveryRepository.deliveryListReqeust = requestStub
+
+        let expectedDeliveries = Array(deliveriesAdded.dropLast(5))
+        let firstFiveDeliveryId = expectedDeliveries.map({ $0.id })
+        let deliveryObservable = self.deliveryRepository.deliveryObservable(idList: firstFiveDeliveryId)?
+            .take(1)
+
+        // Given 10 deliveries were added
+        deliveryRepository.fechDeliveries(cleanCachedDeliveries: false, success: {
+            _ = try? Realm().refresh()
+            // When we read 5 delivery of id []
+            let fetchededDeliveries = try? deliveryObservable?.toBlocking(timeout: 1).first()!
+            let fetchedItemIds = fetchededDeliveries??.toArray().map({ $0.id })
+
+            // Then we should have fetched the 5 delivery
+            XCTAssertEqual(fetchedItemIds, firstFiveDeliveryId, "ID equals")
+            promise.fulfill()
+        }, fail: { _ in
+            XCTFail("Stub should not triiger fail block")
+        })
+        waitForExpectations(timeout: 3, handler: nil)
+    }
 }

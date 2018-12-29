@@ -13,7 +13,7 @@ import RealmSwift
 class DeliveryDetailViewModel {
     let deliveryId: Int
 
-    let deliveryRepository = DeliveryRepository()
+    private var deliveryRepository: DeliveryRepository!
 
     private var deliveryItemObservable: Observable<Results<Delivery>>?
 
@@ -22,8 +22,10 @@ class DeliveryDetailViewModel {
     var subtitleObservable: Observable<String>?
     var imageUrlObservable: Observable<String?>?
 
-    init(deliveryId: Int) {
+    init(deliveryId: Int,
+         deliveryRepository: DeliveryRepository = DeliveryRepository()) {
         self.deliveryId = deliveryId
+        self.deliveryRepository = deliveryRepository
 
         self.deliveryItemObservable = deliveryRepository.deliveryItemObservable(id: deliveryId)
 
